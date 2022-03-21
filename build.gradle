@@ -1,0 +1,21 @@
+plugins {
+	id 'java'
+	id 'application'
+	id 'idea'
+}
+
+mainClassName = "ch.fhnw.algd1.converters.ui.Application"
+
+sourceCompatibility = 17
+targetCompatibility = 17
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+tasks.named('jar') {
+	archiveFileName = 'utf.jar'
+
+	manifest {
+		attributes 'Main-Class': mainClassName
+		attributes 'Class-Path': '.'
+	}
+}
