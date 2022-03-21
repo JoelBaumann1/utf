@@ -39,11 +39,11 @@ public class UTF8Converter {
 			if(l == 1){
 				return bytes[0];
 			}else if(l == 2){
-				return (bytes[0]&0b0111_1111)<<6 +(bytes[1]&0b0011_1111);
+				return (bytes[0]&0b0111_1111)<<6 | (bytes[1]&0b0011_1111);
 			}else if(l == 3) {
-				return (bytes[0] & 0b0111_1111) << 12 + (bytes[1] & 0b0011_1111) << 6 + (bytes[2] & 0b0011_1111);
+				return ((bytes[0] & 0b0111_1111) << 12) | ((bytes[1] & 0b0011_1111) << 6) | ((bytes[2] & 0b0011_1111));
 			}else if(l ==4){
-				return (bytes[0] & 0b0111_1111) << 18 + (bytes[1] & 0b0011_1111) << 12 + (bytes[2] & 0b0011_1111)<<6 +(bytes[3] & 0b0011_1111);
+				return ((bytes[0] & 0b0111_1111) << 18) | ((bytes[1] & 0b0011_1111) << 12) | ((bytes[2] & 0b0011_1111)<<6) | ((bytes[3] & 0b0011_1111));
 			}
 			return 0;
 		} else return 0;
